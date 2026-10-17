@@ -5,7 +5,7 @@ get "/" do
   "ok"
 end
 
-get "/app/mbrozbar_gmail_com" do
+get "/app/*" do
   x = params[:x].to_i
   y = params[:y].to_i
 
