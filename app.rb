@@ -6,10 +6,13 @@ get "/" do
 end
 
 get "/app/mbrozbar_gmail_com" do
-  x = params[:x].to_i
-  y = params[:y].to_i
+  x = params[:x]
+  y = params[:y]
 
-  return "NaN" if x < 0 || y < 0
-  x.lcm(y).to_s
+  if x.match?(/\A\d+\z/) && y.match?(/\A\d+\z/)
+    x.to_i.lcm(y.to_i).to_s
+  else
+    return "NaN" 
+  end
 end
 
